@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:deepgram_flutter/src/models/deepgram_tts_request.dart';
 import 'package:http/http.dart' as http;
 import 'live_tts_connection.dart';
-import 'models/live_tts_event.dart';
-
 /// Exception thrown when Deepgram API requests fail
 class DeepgramException implements Exception {
   final String message;
@@ -31,15 +30,8 @@ class DeepgramClient {
   }
 
   /// Converts text to speech using REST API
-  Future<Uint8List> textToSpeech({
-    required String text,
-    String model = 'aura-asteria-en',
-    DeepgramAudioEncoding encoding = DeepgramAudioEncoding.mp3,
-  }) async {
-    final url = Uri.parse('$baseUrl/speak').replace(queryParameters: {
-      'model': model,
-      'encoding': encoding.value,
-    });
+  Future<Uint8List> textToSpeech(DeepgramTtsRequest request) async {
+    final url = Uri.parse('$baseUrl/speak').replace(queryParameters: request.toQueryParameters());
 
     try {
       final response = await http.post(
@@ -49,7 +41,7 @@ class DeepgramClient {
           'Authorization': 'Token $apiKey',
         },
         body: jsonEncode({
-          'text': text,
+          'text': request.text,
         }),
       );
 

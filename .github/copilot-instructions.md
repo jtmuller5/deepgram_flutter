@@ -1,0 +1,1 @@
+This is a Flutter package. Add Dart documentation to all functions, variables, and classes using "///" comments.

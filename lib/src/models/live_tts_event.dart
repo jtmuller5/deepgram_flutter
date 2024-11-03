@@ -49,16 +49,3 @@ enum DeepgramModel {
   const DeepgramModel(this.value);
   final String value;
 }
-
-enum DeepgramAudioEncoding {
-  linear16('linear16'),
-  mulaw('mulaw'),
-  alaw('alaw'),
-  mp3('mp3'),
-  opus('opus'),
-  flac('flac'),
-  aac('aac');
-
-  const DeepgramAudioEncoding(this.value);
-  final String value;
-}
