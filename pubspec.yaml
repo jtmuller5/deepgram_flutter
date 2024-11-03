@@ -1,0 +1,25 @@
+name: deepgram_flutter
+description: "Pure Dart SDK for Deepgram API"
+version: 0.0.1
+repository: 
+  type: git
+  url: https://github.com/adityatelange/hugo-PaperMod
+homepage: https://deepgram.com/
+publish_to: "none"
+
+environment:
+  sdk: ^3.5.2
+  flutter: ">=1.17.0"
+
+dependencies:
+  http: ^1.1.0
+  meta: ^1.9.1
+  web_socket_channel: ^2.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+
